@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=SimpleCalc
+comment0.text=\n\ Write\ a\ description\ of\ class\ SimpleCalc\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=SimpleCalc()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ CalcRunner\n
+comment2.params=x\ y
+comment2.target=void\ setTwoNums(int,\ int)
+comment2.text=\n\ Method\n
+comment3.params=numOne\ numTwo
+comment3.target=double\ add(int,\ int)
+comment4.params=numOne\ numTwo
+comment4.target=double\ subtract(int,\ int)
+comment5.params=numOne\ numTwo
+comment5.target=double\ multiply(int,\ int)
+comment6.params=numOne\ numTwo
+comment6.target=double\ divide(int,\ int)
+comment7.params=numOne\ numTwo
+comment7.target=double\ moduloDivide(int,\ int)
+numComments=8
