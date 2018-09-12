@@ -1,4 +1,3 @@
-
 /**
  * Lab 906:: Find Mean Median and Mode
  * 
@@ -18,6 +17,7 @@ public class StatRunner{
         System.out.println("\n\n" + "Your sum is: " + st.getSum());
         System.out.println("Your mean is: " + st.getMean());
         System.out.println("Your median is: " + st.getMedian());
-        System.out.println("Your mode is: " + st.getMode());
+        System.out.print("Your mode(s) is (are): ");
+        st.getMode();
     }
 }
