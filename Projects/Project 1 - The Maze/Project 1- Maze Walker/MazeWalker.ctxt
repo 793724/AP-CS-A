@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=MazeWalker
+comment0.text=\r\n\ MazeWalker\r\n\ \r\n\ @author\ (Emma\ Chiu)\ \r\n\ @version\ (830)\r\n
+comment1.params=
+comment1.target=void\ run()
+comment1.text=\r\n\ \ \ \ \r\n\ \ \ \ public\ void\ setBreadCrumbObject(Object\ breadCrumbObject){\r\n\ \ \ \ \ \ \ \ breadCrumb()\ \=\ breadCrumbObject;\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ Object\ getBreadCrumbObject(){\r\n\ \ \ \ \ \ \ \ return\ breadCrumb();\r\n\ \ \ \ }\r\n\ \ \ \ \r\n
+comment2.params=maze\ mazeBot
+comment2.target=void\ walkMaze(Maze,\ MazeBot)
+numComments=3
