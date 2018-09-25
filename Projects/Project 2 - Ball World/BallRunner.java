@@ -6,8 +6,23 @@
  * @version (914)
  */
 public class BallRunner {
-   
-    public static void run() {
+    public static void activity1() {
+        BallWorld ballWorld = new BallWorld(200, 200);
+        TGPoint startPoint = new TGPoint(0, 0);
+        int startHeading = 0;
+        int radius = 25;
+        BallBot ballBot = new BallBot(ballWorld, startPoint, startHeading, radius);
+        while(1+1 == 2){
+            if(ballBot.canMoveForward(ballWorld) == true){
+                ballBot.moveForward();
+            } else {
+                startHeading = (startHeading + 90) % 360;
+                ballBot.setHeading(startHeading);
+            }
+        }
+    }
+
+    public static void activity2() {
         BallWorld ballWorld = new BallWorld(200, 200);
         TGPoint entrancePoint = new TGPoint(0, 0);
         int startHeading = (int)(Math.random()*360);
@@ -19,7 +34,7 @@ public class BallRunner {
         while(1+1 == 2){
             int freeBallBotIndex = ballrunner.findFreeBallBotIndex(ballBotArray);
             if(freeBallBotIndex < ballBotArray.length){
-                ballBotArray[freeBallBotIndex] = new BallBot(ballWorld, entrancePoint, startHeading, radius);
+                ballBotArray[freeBallBotIndex] = new BallBot(ballWorld, entrancePoint, (int)(Math.random()*360), radius);
             }
 
             for(int index = 0; index < ballBotArray.length; index++){
@@ -51,6 +66,35 @@ public class BallRunner {
         }
     }
     
+    public static void activity3() {
+        BallWorld ballWorld = new BallWorld(200, 200);
+        TGPoint entrancePoint = new TGPoint(0, 0);
+        int startHeading = (int)(Math.random()*360);
+        int radius = 25;
+        
+        BallBot[] ballBotArray = new BallBot[10];
+        BallRunner ballrunner = new BallRunner();
+
+        while(1+1 == 2){
+            if(ballrunner.entranceClear(ballBotArray, entrancePoint) == true){
+                int freeBallBotIndex = ballrunner.findFreeBallBotIndex(ballBotArray);
+                if(freeBallBotIndex < ballBotArray.length){
+                    ballBotArray[freeBallBotIndex] = new BallBot(ballWorld, entrancePoint, (int)(Math.random()*360), radius);
+                }
+            }
+            for(int index = 0; index < ballBotArray.length; index++){
+                if(ballBotArray[index] != null){
+                    if(ballBotArray[index].canMoveForward(ballWorld) == true){
+                        ballBotArray[index].moveForward();
+                    } else {
+                        startHeading = (int)(Math.random()*360);
+                        ballBotArray[index].setHeading(startHeading);
+                    }
+                }
+            }
+        }
+    }
+    
     public double distanceBetweenPoints(TGPoint point1, TGPoint point2){
         double xDiff = point1.x - point2.x;
         double yDiff = point1.y - point2.y;
@@ -70,5 +114,38 @@ public class BallRunner {
             }
         }
         return clear;
+    }
+    
+    public static void activity4() {
+        BallWorld ballWorld = new BallWorld(200, 200);
+        TGPoint entrancePoint = new TGPoint(0, 0);
+        int startHeading = (int)(Math.random()*360);
+        int radius = 25;
+        
+        BallBot[] ballBotArray = new BallBot[10];
+        BallRunner ballrunner = new BallRunner();
+
+        while(1+1 == 2){
+            if(ballrunner.entranceClear(ballBotArray, entrancePoint) == true){
+                int freeBallBotIndex = ballrunner.findFreeBallBotIndex(ballBotArray);
+                if(freeBallBotIndex < ballBotArray.length){
+                    ballBotArray[freeBallBotIndex] = new BallBot(ballWorld, entrancePoint, (int)(Math.random()*360), radius);
+                }
+            }
+            for(int index = 0; index < ballBotArray.length; index++){
+                if(ballBotArray[index] != null){
+                    if(ballBotArray[index].canMoveForward(ballWorld) == true){
+                        ballBotArray[index].moveForward();
+                    } else {
+                        startHeading = (int)(Math.random()*360);
+                        ballBotArray[index].setHeading(startHeading);
+                    }
+                }
+            }
+        }
+    }
+    
+    public BallBot ballBotToBounceOff(BallBot ballBot, BallBot[] ballBotarray){
+        return ballBot;
     }
 }
