@@ -145,7 +145,18 @@ public class BallRunner {
         }
     }
     
-    public BallBot ballBotToBounceOff(BallBot ballBot, BallBot[] ballBotarray){
+    public BallBot ballBotToBounceOff(BallBot ballBot, BallBot[] ballBotArray){
+        TGPoint point = ballBot.getPoint();
+        TGPoint nextPoint = ballBot.forwardPoint();
+        
+        for(int i = 0; i < ballBotArray.length; i++){
+            BallBot otherBallBot = ballBotArray[i];
+            if(otherBallBot != null && otherBallBot != ballBot){
+                double currentDistance = distanceBetweenPoints(ballBot.getPoint(), otherBallBot.getPoint());
+            }
+        }
+        
+        
         return ballBot;
     }
 }
