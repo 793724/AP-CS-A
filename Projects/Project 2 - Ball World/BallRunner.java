@@ -194,4 +194,36 @@ public class BallRunner {
             }
         }
     }
+    
+    public static void bonusActivity() {
+        BallWorld ballWorld = new BallWorld(800, 800);
+        TGPoint entrancePoint = new TGPoint(0, 0);
+        
+        BallBot[] ballBotArray = new BallBot[20];
+        BallRunner ballrunner = new BallRunner();
+
+        while(1+1 == 2){
+            if(ballrunner.entranceClear(ballBotArray, entrancePoint) == true){
+                int freeBallBotIndex = ballrunner.findFreeBallBotIndex(ballBotArray);
+                if(freeBallBotIndex < ballBotArray.length){
+                    ballBotArray[freeBallBotIndex] = new BallBot(ballWorld, entrancePoint, Math.random()*360.0, (int)(Math.random()*56+5));
+                    ballBotArray[freeBallBotIndex].setColor((int)(Math.random()*32));
+                    ballBotArray[freeBallBotIndex].setPixelsPerSecond((int)(Math.random()*250+10));
+                }
+            }
+            for(int index = 0; index < ballBotArray.length; index++){
+                if(ballBotArray[index] != null){
+                    if(ballBotArray[index].canMoveForward(ballWorld) == true){
+                        if(ballrunner.ballBotToBounceOff(ballBotArray[index], ballBotArray) == null){
+                            ballBotArray[index].moveForward();
+                        } else {
+                            ballBotArray[index].setHeading(Math.random()*360.0);
+                        }
+                    } else {
+                        ballBotArray[index].setHeading(360 - 2 * (ballBotArray[index].getHeading() % 90));
+                    }
+                }
+            }
+        }
+    }
 }
