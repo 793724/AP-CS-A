@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Pumpkin
+comment0.text=\n\ Test\ 1\ Corrections-\ Problem\ 10\n\n\ @\ Emma\ Chiu\n\ @\ 10/1/18\n
+comment1.params=num
+comment1.target=Pumpkin(int)
+comment2.params=x
+comment2.target=void\ setNum(int)
+comment3.params=
+comment3.target=int\ getNum()
+numComments=4
