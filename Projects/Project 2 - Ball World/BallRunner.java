@@ -225,10 +225,10 @@ public class BallRunner {
                         if(ballrunner.ballBotToBounceOff(ballBotArray[index], ballBotArray) == null){ // Keep going if there's no ball bot or wall in the way
                             ballBotArray[index].moveForward();
                         } else {
-                        ballBotArray[index].setHeading((ballBotArray[index].getHeading() % 360 + 180) - 2 * (90 - (ballBotArray[index].getHeading() % 90)));  // Bounce off other balls- not working yet!
+                            ballBotArray[index].setHeading(((ballBotArray[index].getHeading() + 180) % 360) + (2 * (90 - (ballBotArray[index].getHeading() % 90))));  // Bounce off other balls- not working yet!
                         }
                     } else {
-                        ballBotArray[index].setHeading((ballBotArray[index].getHeading() % 360 + 180) - 2 * (90 - (ballBotArray[index].getHeading() % 90))); // Bounce off walls- not working yet!
+                        ballBotArray[index].setHeading(((ballBotArray[index].getHeading() + 180) % 360) + (2 * (90 - (ballBotArray[index].getHeading() % 90)))); // Bounce off walls- not working yet!
                     }
                 }
             }
