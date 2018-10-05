@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Sentence
+comment0.text=\r\n\ Lab\ 1005\ Sentence\ Builder\r\n\r\n\ @\ Emma\ Chiu\r\n\ @\ 1005\r\n\ \r\n\ FIX\ LOAD\ SENTENCE;\ NEED\ CONSTRUCTOR?\r\n
+comment1.params=
+comment1.target=java.lang.String\ getSentence()
+comment10.params=
+comment10.target=java.lang.String\ getPrepositionalPhrase()
+comment2.params=nouns
+comment2.target=java.lang.String\ getRandomNoun(java.lang.String[])
+comment3.params=verbs
+comment3.target=java.lang.String\ getRandomVerb(java.lang.String[])
+comment4.params=adjectives
+comment4.target=java.lang.String\ getRandomAdjective(java.lang.String[])
+comment5.params=adverbs
+comment5.target=java.lang.String\ getRandomAdverb(java.lang.String[])
+comment6.params=determiners
+comment6.target=java.lang.String\ getRandomDeterminer(java.lang.String[])
+comment7.params=prepositions
+comment7.target=java.lang.String\ getRandomPreposition(java.lang.String[])
+comment8.params=
+comment8.target=java.lang.String\ getNounPhrase()
+comment9.params=
+comment9.target=java.lang.String\ getVerbPhrase()
+numComments=11
