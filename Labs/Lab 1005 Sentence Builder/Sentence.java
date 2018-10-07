@@ -10,11 +10,11 @@
 
 public class Sentence {
     
-    private String[] nouns = {"box", "cat", "cloud", "shell", "photograph", "sushi", "mirror", "philosopher", "lawnmower", "flag", "island", "moon"};
+    private String[] nouns = {"box", "cat", "cloud", "shell", "photograph", "sushi", "mirror", "philosopher", "lawnmower", "flag", "carpet", "moon"};
     private String[] verbs = {"sprints", "leaps", "flies", "sleeps", "rotates", "ponders", "screams", "waltzes", "babbles", "vanishes", "smiles", "scrambles"};
     private String[] adjectives = {"fluffy", "wooden", "circular", "elaborate", "imaginary", "colorful", "cardboard", "singing", "transparent", "aggressive", "flimsy", "dead"};
     private String[] adverbs = {"hastily", "rarely", "eagerly", "sleepily", "furtively", "pensively", "harshly", "graciously", "attentively", "carelessly", "decisively", "painfully"};
-    private String[] determiners = {"the", "my", "his", "her", "their", "your", "a", "our", "this", "that", "one", "one hundred"};
+    private String[] determiners = {"the", "my", "his", "her", "their", "your", "a", "our", "this", "that", "one", "the"};
     private String[] prepositions = {"over", "near", "under", "through", "around", "left of", "beyond", "despite", "across from", "toward", "behind", "right of"};
     private String sentence = "";
     
