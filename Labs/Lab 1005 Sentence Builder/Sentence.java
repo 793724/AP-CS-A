@@ -4,8 +4,6 @@
  *
  * @ Emma Chiu
  * @ 1005
- * 
- * FIX LOAD SENTENCE; NEED CONSTRUCTOR?
  */
 
 public class Sentence {

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Sentence
-comment0.text=\n\ Lab\ 1005\ Sentence\ Builder\n\n\ @\ Emma\ Chiu\n\ @\ 1005\n\ \n\ FIX\ LOAD\ SENTENCE;\ NEED\ CONSTRUCTOR?\n
+comment0.text=\n\ Lab\ 1005\ Sentence\ Builder\n\n\ @\ Emma\ Chiu\n\ @\ 1005\n
 comment1.params=
 comment1.target=void\ loadSentences()
 comment10.params=
