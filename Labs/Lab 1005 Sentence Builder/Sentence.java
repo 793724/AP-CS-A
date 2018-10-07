@@ -10,19 +10,21 @@
 
 public class Sentence {
     
-    private String[] nouns = {"box", "cat", "cloud", "shell"};
-    private String[] verbs = {"runs", "leaps", "flies", "sleeps"};
-    private String[] adjectives = {"fluffy", "wooden", "circular", "ornate"};
-    private String[] adverbs = {"quickly", "rarely", "eagerly", "sleepily"};
-    private String[] determiners = {"the", "my", "his", "her"};
-    private String[] prepositions = {"over", "near", "under", "through"};
+    private String[] nouns = {"box", "cat", "cloud", "shell", "photograph", "sushi", "mirror", "philosopher", "lawnmower", "flag", "island", "moon"};
+    private String[] verbs = {"sprints", "leaps", "flies", "sleeps", "rotates", "ponders", "screams", "waltzes", "babbles", "vanishes", "smiles", "scrambles"};
+    private String[] adjectives = {"fluffy", "wooden", "circular", "elaborate", "imaginary", "colorful", "cardboard", "singing", "transparent", "aggressive", "flimsy", "dead"};
+    private String[] adverbs = {"hastily", "rarely", "eagerly", "sleepily", "furtively", "pensively", "harshly", "graciously", "attentively", "carelessly", "decisively", "painfully"};
+    private String[] determiners = {"the", "my", "his", "her", "their", "your", "a", "our", "this", "that", "one", "one hundred"};
+    private String[] prepositions = {"over", "near", "under", "through", "around", "left of", "beyond", "despite", "across from", "toward", "behind", "right of"};
+    private String sentence = "";
     
-    // public void loadSentence(){
-        // String sentence = getNounPhrase() + getVerbPhrase() + getPrepositionalPhrase();
-    // }
+    public void loadSentences(){
+        sentence = getNounPhrase() + " " + getVerbPhrase() + " " + getPrepositionalPhrase() + ".";
+        sentence = sentence.substring(0,1).toUpperCase() + sentence.substring(1);
+    }
     
     public String getSentence(){
-        return getNounPhrase() + " " + getVerbPhrase() + " " + getPrepositionalPhrase() + ".";
+        return sentence;
     }
     
     public String getRandomNoun(String[] nouns){
