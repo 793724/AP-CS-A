@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @ 1015
  */
 
-public class MagpieRunner2 {
+public class MagpieRunner3 {
     /**
     * Create a Magpie, give it user input, and print its replies.
     */
@@ -18,7 +18,7 @@ public class MagpieRunner2 {
 	Scanner in = new Scanner (System.in);
 	String statement = in.nextLine();
 	statement = statement.toLowerCase();
-	
+		
 	while (!statement.equals("bye")) {
             System.out.println (maggie.getResponse(statement));
 	    statement = in.nextLine();
