@@ -1,7 +1,6 @@
 #BlueJ class context
-comment0.target=MagpieRunner2
+comment0.target=StringExplorer3
 comment0.text=\n\ Project\ 3\ -\ Magpie\n\n\ @\ Emma\ Chiu\n\ @\ 1015\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment1.text=\n\ Create\ a\ Magpie,\ give\ it\ user\ input,\ and\ print\ its\ replies.\n
 numComments=2
