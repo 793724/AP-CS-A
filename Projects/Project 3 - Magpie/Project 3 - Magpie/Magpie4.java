@@ -6,7 +6,7 @@
  * @ 1015
  */
 
-public class Magpie3 {
+public class Magpie4 {
     /**
     * Get a default greeting    
     * @ return a greeting
@@ -35,11 +35,11 @@ public class Magpie3 {
             || findKeyword(statement2, "hola") >= 0
             || findKeyword(statement2, "sup") >= 0) {
             response = "Hi, nice to meet you.";
-        } else if (findKeyword(statement2, "i like") >= 0) {
-            response = "What do you like about it?";
-        } else if (findKeyword(statement2, "you") >= 0
-            || findKeyword(statement2, "your") >= 0) {
-            response = "No personal questions, please.";
+        } else if (findKeyword(statement2, "i like") >= 0 && findKeyword(statement2, "you", 0) < 0 && statement2.trim().length() > 6) {
+            response = transformLikeStatement(statement2);
+        } else if(findKeyword(statement2, "i know about") >= 0) {
+            int psn = findKeyword(statement2, "i know about");
+            response = "What do you know about " + statement2.substring(psn + 13) + "?";
         } else if (findKeyword(statement2, "i know") >= 0) {
             response = "What else do you know?";
         } else if (findKeyword(statement2, "mother") >= 0
@@ -61,10 +61,27 @@ public class Magpie3 {
         } else if (findKeyword(statement2, "yes") >= 0
             || findKeyword(statement2, "yep") >= 0 
             || findKeyword(statement2, "yeah") >= 0) {
-            response = "I'm glad you agree.";
+            response = "I'm glad you think so.";
+        } else if(findKeyword(statement2, "i want", 0) >= 0 && statement2.trim().length() > 6) {
+            // responses which require transformations
+            response = transformIWantToStatement(statement2);
+        } else if(statement2.trim().equals("because")) {
+            response = "That's not a very good reason, is it?";
         } else if (statement2.trim().length() == 0) {
             // when there is no input (spaces don't count)
             response = "Say something, please.";
+        } else if (findKeyword(statement2, "you", 0) >= 0) {
+            // look for a two word (you <something> me) pattern or a (I <something> you) pattern
+            int psnY = findKeyword(statement2, "you", 0);
+            int psnM = findKeyword(statement2, "me", 0);
+            int psnI = findKeyword(statement2, "I", 0);
+            if (psnY >=0 && psnM >=0) {
+                response = transformYouMeStatement(statement2);
+            } else if (psnI >= 0 && psnY >= 0){
+                response = transformYouIStatement(statement2);
+            } else {
+                response = "No personal questions, please.";
+            }
         } else {
             // gets a generic response if none of the keywords are found
             response = getRandomResponse();
@@ -73,6 +90,95 @@ public class Magpie3 {
         return response;
     }
 
+	
+    /**
+    * Take a statement with "I want to <something>." and transform it into 
+    * "What would it mean to <something>?"
+    * @ param statement the user statement, assumed to contain "I want to"
+    * @ return the transformed statement
+    */
+    private String transformIWantToStatement(String statement){
+        //  Remove the final period, if there is one
+	statement = statement.trim();
+	String lastChar = statement.substring(statement.length() - 1);
+	if (lastChar.equals(".")) {
+	    statement = statement.substring(0, statement.length() - 1);
+	}
+	if (statement.indexOf("i want to") >= 0){
+	    int psnVerb = findKeyword(statement, "i want to", 0);
+	    String restOfStatement = statement.substring(psnVerb + 9).trim();
+	    return "Would you really be happy if you could " + restOfStatement + "?";
+	} else {
+	    int psnNoun = findKeyword (statement, "i want", 0);
+	    String restOfStatement = statement.substring(psnNoun + 6).trim();
+	    return "Would you really be happy if you had " + restOfStatement + "?";
+	}
+    }
+
+    /**
+    * Take a statement with "you <something> me" and transform it into 
+    * "What makes you think that I <something> you?"
+    * @ param statement the user statement, assumed to contain "you" followed by "me"
+    * @ return the transformed statement
+    */
+    private String transformYouMeStatement(String statement) {
+        // Remove the final period, if there is one
+	statement = statement.trim();
+	String lastChar = statement.substring(statement.length() - 1);
+	if (lastChar.equals(".")) {
+	    statement = statement.substring(0, statement.length() - 1);
+	}
+	
+	int psnOfYou = findKeyword (statement, "you", 0);
+	int psnOfMe = findKeyword (statement, "me", psnOfYou + 3);
+	
+	String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe).trim();
+	return "What makes you think that I " + restOfStatement + " you?";
+    }
+    
+    /**
+    * Take a statement with "I <something> you" and transform it into 
+    * "Why do you <something> me?"
+    * @ param statement the user statement, assumed to contain "I" followed by "you"
+    * @ return the transformed statement
+    */
+    private String transformYouIStatement(String statement) {
+        // Remove the final period, if there is one
+	statement = statement.trim();
+	String lastChar = statement.substring(statement.length() - 1);
+	if (lastChar.equals(".")) {
+	    statement = statement.substring(0, statement.length() - 1);
+	}
+	
+	int psnOfI = findKeyword (statement, "i", 0);
+	int psnOfYou = findKeyword (statement, "you", psnOfI + 1);
+
+	String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
+	return "Why do you " + restOfStatement + " me?";
+    }
+    
+    /**
+    * Take a statement with "I like <something>" and transform it into 
+    * "Why do you like <something>?" if a verb or "What do you like about <something>?" if a noun
+    * @ param statement the user statement, assumed to contain "I" followed by "you"
+    * @ return the transformed statement
+    */
+    private String transformLikeStatement(String statement) {
+        // Remove the final period, if there is one
+	statement = statement.trim();
+	String lastChar = statement.substring(statement.length() - 1);
+	if (lastChar.equals(".")) {
+	    statement = statement.substring(0, statement.length() - 1);
+	}
+
+	int psn = findKeyword(statement, "i like");
+        if(findKeyword(statement, "i like to") >= 0) {
+           return "Why do you like " + statement.substring(psn + 7) + "?";
+        } else {
+           return "What do you like about " + statement.substring(psn + 7) + "?";
+        }
+    }
+    
     /**
     * Search for one word in phrase. The search is not case
     * sensitive. This method will check that the given goal
@@ -136,6 +242,7 @@ public class Magpie3 {
         // shortened method; starting position is unnecessary
         return findKeyword(statement, goal, 0);
     }
+
 
     /**
      * Pick a default response to use if nothing else fits.

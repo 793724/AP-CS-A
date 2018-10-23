@@ -1,20 +1,20 @@
 import java.util.Scanner;
 
 /**
- * Project 3 - Magpie
+ * Project 4 - Magpie
  *
  * @ Laurie White
  * @ Emma Chiu
  * @ 1015
  */
 
-public class MagpieRunner3 {
+public class MagpieRunner5 {
     /**
     * Create a Magpie, give it user input, and print its replies.
     */
     public static void main(String[] args) {
         // new magpie object
-        Magpie3 maggie = new Magpie3();
+        Magpie5 maggie = new Magpie5();
 		
         // opens conversation and user response
 	System.out.println (maggie.getGreeting());

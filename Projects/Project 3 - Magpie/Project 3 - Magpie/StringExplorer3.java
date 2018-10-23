@@ -1,6 +1,7 @@
 /**
  * Project 3 - Magpie
  *
+ * @ Laurie White
  * @ Emma Chiu
  * @ 1015
  */
