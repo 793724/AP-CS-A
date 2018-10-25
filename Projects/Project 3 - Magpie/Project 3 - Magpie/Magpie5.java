@@ -5,6 +5,8 @@ import java.util.Random;
  * @ Laurie White
  * @ Emma Chiu
  * @ 1015
+ * 
+ * BEST VERSION; RUN THIS!
  */
 
 public class Magpie5 {
@@ -36,6 +38,18 @@ public class Magpie5 {
             || findKeyword(statement2, "hola") >= 0
             || findKeyword(statement2, "sup") >= 0) {
             response = "Hi, nice to meet you.";
+        } else if(statement2.trim().equals("how are you")
+            || statement2.trim().equals("how are you doing")
+            || statement2.trim().equals("how are you today")
+            || statement2.trim().equals("how are you?")
+            || statement2.trim().equals("how are you doing?")
+            || statement2.trim().equals("how are you today?")) {
+            response = "I'm well, thanks, and you?";
+        } else if(statement2.trim().equals("who are you")
+            || statement2.trim().equals("who are you?")
+            || statement2.trim().equals("what are you")
+            || statement2.trim().equals("what are you?")) {
+            response = "I'm a chatbot; my name is Emma 2.0.";
         } else if (findKeyword(statement2, "i like") >= 0 && findKeyword(statement2, "you", 0) < 0 && statement2.trim().length() > 6) {
             response = transformLikeStatement(statement2);
         } else if(findKeyword(statement2, "i know about") >= 0) {
@@ -43,21 +57,36 @@ public class Magpie5 {
             response = "What do you know about " + statement2.substring(psn + 13) + "?";
         } else if (findKeyword(statement2, "i know") >= 0) {
             response = "What else do you know?";
+        } else if(findKeyword(statement2, "my name is") >= 0) {
+            response = transformNameStatement(statement2);
+        } else if(findKeyword(statement2, "you're welcome") >= 0
+            || findKeyword(statement2, "you are welcome") >= 0) {
+            response = "I will eternally be in your debt. :)";
         } else if (findKeyword(statement2, "mother") >= 0
             || findKeyword(statement2, "father") >= 0
             || findKeyword(statement2, "sister") >= 0
             || findKeyword(statement2, "brother") >= 0) {
-            response = "Tell me more about your family.";
+            response = "Interesting, tell me more about your family.";
         } else if (findKeyword(statement2, "dog") >= 0
             || findKeyword(statement2, "cat") >= 0) {
-            response = "Tell me more about your pets.";
+            response = "Hmm, tell me more about your pets.";
         } else if (findKeyword(statement2, "ettlin") >= 0) {
             response = "He sounds like a good teacher.";
         } else if (findKeyword(statement2, "thanks") >= 0
             || findKeyword(statement2, "thank you") >= 0
             || findKeyword(statement2, "sorry") >= 0) {
             response = "No problem!";
-        } else if (findKeyword(statement2, "no") >= 0) {
+        } else if (findKeyword(statement2, "haha") >= 0
+            || findKeyword(statement2, ":)") >= 0
+            || findKeyword(statement2, "ha") >= 0
+            || findKeyword(statement2, "xd") >= 0
+            || findKeyword(statement2, "xp") >= 0
+            || findKeyword(statement2, ":p") >= 0
+            || findKeyword(statement2, "lol") >= 0) {
+            response = ";)";
+        } else if (findKeyword(statement2, "no") >= 0
+            || findKeyword(statement2, "nope") >= 0
+            || findKeyword(statement2, "nah") >= 0) {
             response = "Why so negative?";
         } else if (findKeyword(statement2, "yes") >= 0
             || findKeyword(statement2, "yep") >= 0 
@@ -66,8 +95,12 @@ public class Magpie5 {
         } else if(findKeyword(statement2, "i want", 0) >= 0 && statement2.trim().length() > 6) {
             // responses which require transformations
             response = transformIWantToStatement(statement2);
-        } else if(statement2.trim().equals("because")) {
+        } else if(statement2.trim().equals("because")
+            || statement2.trim().equals("because.")) {
             response = "That's not a very good reason, is it?";
+        } else if(statement2.trim().equals("why")
+            || statement2.trim().equals("why?")) {
+            response = "That's a good question.";
         } else if (statement2.trim().length() == 0) {
             // when there is no input (spaces don't count)
             response = "Say something, please.";
@@ -179,6 +212,24 @@ public class Magpie5 {
     }
     
     /**
+    * Take a statement with "My name is <something>" and transform it into 
+    * "It's a pleasure to meet you, <something>"
+    * @ param statement the user statement, assumed to contain "I" followed by "you"
+    * @ return the transformed statement
+    */
+    private String transformNameStatement(String statement) {
+        // Remove the final period, if there is one
+	statement = statement.trim();
+	String lastChar = statement.substring(statement.length() - 1);
+	if (lastChar.equals(".")) {
+	    statement = statement.substring(0, statement.length() - 1);
+	}
+
+	int psn = findKeyword(statement, "my name is");
+        return "It's a pleasure to meet you, " + statement.substring(psn + 11) + ".";
+    }
+    
+    /**
     * Search for one word in phrase. The search is not case
     * sensitive. This method will check that the given goal
     * is not a substring of a longer string (so, for
@@ -252,12 +303,16 @@ public class Magpie5 {
     }
 	
     private String [] randomResponses = {
-        "Interesting, tell me more",
+        "Interesting, tell me more.",
 	"Hmmm.",
 	"Do you really think so?",
 	"You don't say.",
 	"I've never considered that.",
 	"Well, that's nice.",
-	"Ohh, I see."
+	"Ohh, I see.",
+	"Huh, I haven't thought of that.",
+	"Ohh, okay.",
+	"That's interesting.",
+	"Is that what you think?"
 	};
 }

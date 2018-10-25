@@ -6,6 +6,8 @@ import java.util.Scanner;
  * @ Laurie White
  * @ Emma Chiu
  * @ 1015
+ * 
+ * MAGPIERUNNER5 IS THE BEST VERSION- RUN THAT!
  */
 
 public class MagpieRunner4 {
