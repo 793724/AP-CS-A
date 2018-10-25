@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=MultipleChoice
+comment0.text=\n\ Homework\ 1023\n\n\ @\ Emma\ Chiu\n\ @\ 1023\n
+comment1.params=
+comment1.target=void\ main()
+comment2.params=x
+comment2.target=java.lang.String\ go(int)
+numComments=3

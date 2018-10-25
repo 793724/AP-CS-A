@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=FreeResponse
+comment0.text=\n\ Homework\ 1023\n\n\ @\ Emma\ Chiu\n\ @\ 1023\n
+comment1.params=
+comment1.target=void\ main()
+comment2.params=str
+comment2.target=int\ countCode(java.lang.String)
+comment3.params=statement\ goal\ startPos
+comment3.target=int\ findKeyword(java.lang.String,\ java.lang.String,\ int)
+comment4.params=statement\ goal
+comment4.target=int\ findKeyword(java.lang.String,\ java.lang.String)
+comment5.params=statement
+comment5.target=java.lang.String\ transformIHaveA(java.lang.String)
+comment6.params=statement
+comment6.target=java.lang.String\ transformIHaveATwo(java.lang.String)
+comment7.params=
+comment7.target=java.lang.String\ getRandomResponse()
+numComments=8

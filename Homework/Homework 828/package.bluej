@@ -1,16 +1,16 @@
 #BlueJ package file
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
-editor.fx.0.y=0
-objectbench.height=66
-objectbench.width=581
+editor.fx.0.height=722
+editor.fx.0.width=800
+editor.fx.0.x=320
+editor.fx.0.y=52
+objectbench.height=79
+objectbench.width=597
 package.divider.horizontal=0.6
-package.divider.vertical=0.6769911504424779
-package.editor.height=146
-package.editor.width=491
+package.divider.vertical=0.6766917293233082
+package.editor.height=173
+package.editor.width=495
 package.editor.x=4
-package.editor.y=707
+package.editor.y=506
 package.frame.height=324
 package.frame.width=621
 package.numDependencies=0

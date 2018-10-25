@@ -123,7 +123,8 @@ public class Magpie5 {
         // chatbot's reply to user input
         return response;
     }
-	/**
+    
+    /**
     * Take a statement with "I want to <something>." and transform it into 
     * "What would it mean to <something>?"
     * @ param statement the user statement, assumed to contain "I want to"
