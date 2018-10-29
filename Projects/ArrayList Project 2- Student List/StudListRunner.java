@@ -30,10 +30,14 @@ public class StudListRunner{
                 System.out.println("Your list of students is as follows:");
                 studList.printStudentList();
                 System.out.println();
-            } else {
+            } else if (command <= 7 && command >= 1){
                 System.out.println("Unfortunately, this command has not yet been implemented.");
                 System.out.println();
+            } else {
+                System.out.println("Invalid input. Please try again.");
             }
+            System.out.println("Press any key to clear the screen and continue!");
+            
         }
     }
     
