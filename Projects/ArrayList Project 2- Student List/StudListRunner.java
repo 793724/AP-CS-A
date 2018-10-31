@@ -18,18 +18,26 @@ public class StudListRunner{
                 Scanner command1 = new Scanner(System.in);
                 System.out.print("Enter your student's name: ");
                 String name = command1.nextLine();
-                System.out.print("Enter your student's student number: ");
-                int number = command1.nextInt();
-                System.out.print("Enter your student's GPA: ");
-                double gpa = command1.nextDouble();
-                studList.addStudentToList(name, number, gpa);
-                System.out.println("Your student has been added!");
+                if((name.indexOf(",") != -1 && name.indexOf(" ") != -1 && name.indexOf(" ", name.indexOf(" ")) != -1) || (name.indexOf(",") == -1 && name.indexOf(" ") != -1)) {
+                    System.out.print("Enter your student's student number: ");
+                    int number = command1.nextInt();
+                    if(countDigits(number) == 6) {
+                        System.out.print("Enter your student's GPA: ");
+                        double gpa = command1.nextDouble();
+                        studList.addStudentToList(name, number, gpa);
+                        System.out.println("Your student has been added!");
+                    } else {
+                        invalid();
+                    }
+                } else {
+                    invalid();
+                }
                 System.out.println();
             } else if (command == 2) {
                 Scanner command2 = new Scanner(System.in);
                 System.out.print("Enter your student's last name: ");
                 String name = command2.nextLine();
-                if(studList.deleteStudent(name) == true) {
+                if(studList.deleteStudentFromList(name) == true) {
                     System.out.println("Your student has been removed!");
                 } else {
                     System.out.println("Sorry, this student was not in the list.");
@@ -37,16 +45,50 @@ public class StudListRunner{
                 System.out.println();
             } else if (command == 3) {
                 Scanner command3 = new Scanner(System.in);
-                System.out.print("Enter your student's student number: ");
-                int number = command3.nextInt();
-                System.out.print("Enter your student's updated name: ");
-                String name = command3.nextLine();
-                System.out.print("Enter your student's updated GPA: ");
-                double gpa = command3.nextDouble();
-                if(studList.editStudentList(number, name, gpa) == true) {
-                    System.out.println("Your student has been edited!");
+                System.out.println("Would you like to search for your student:");
+                System.out.println("  - by student number (press 1), or");
+                System.out.println("  - by last name (press 2)?");
+                int choice = command3.nextInt();
+                if (choice == 1) {
+                    Scanner command32 = new Scanner(System.in);
+                    System.out.print("Enter your student's student number: ");
+                    int number = command32.nextInt();
+                    if(countDigits(number) == 6) {
+                        Scanner command33 = new Scanner(System.in);
+                        System.out.print("Enter your student's updated name: ");
+                        String name = command33.nextLine();
+                        if((name.indexOf(",") != -1 && name.indexOf(" ") != -1 && name.indexOf(" ", name.indexOf(" ")) != -1) || (name.indexOf(",") == -1 && name.indexOf(" ") != -1)) {
+                            System.out.print("Enter your student's updated GPA: ");
+                            double gpa = command33.nextDouble();
+                            String last = null;
+                            if(studList.editStudentList(number, last, name, gpa) == true) {
+                                System.out.println("Your student has been edited!");
+                            } else {
+                                System.out.println("Sorry, this student was not in the list.");
+                            }
+                        } else {
+                            invalid();
+                        }
+                    } else {
+                        invalid();
+                    }
+                } else if (choice == 2) {
+                    Scanner command32 = new Scanner(System.in);
+                    System.out.print("Enter your student's last name: ");
+                    String last = command32.nextLine();
+                    Scanner command33 = new Scanner(System.in);
+                    System.out.print("Enter your student's updated name: ");
+                    String name = command33.nextLine();
+                    System.out.print("Enter your student's updated GPA: ");
+                    double gpa = command33.nextDouble();
+                    int number = 0;
+                    if(studList.editStudentList(number, last, name, gpa) == true) {
+                        System.out.println("Your student has been edited!");
+                    } else {
+                        System.out.println("Sorry, this student was not in the list.");
+                    }
                 } else {
-                    System.out.println("Sorry, this student was not in the list.");
+                    invalid();
                 }
                 System.out.println();
             } else if (command == 4) {
@@ -57,11 +99,11 @@ public class StudListRunner{
                 System.out.println("Your list of students is as follows:");
                 studList.printStudentList();
                 System.out.println();
-            } else if (command <= 7 && command >= 1){
-                System.out.println("Unfortunately, this command has not yet been implemented.");
+            } else if (command == 6) {
+                System.out.println("Sorry, this command has not yet been implemented.");
                 System.out.println();
             } else {
-                System.out.println("Invalid input. Please try again.");
+                invalid();
             }
             if(command != 7) {
                 Scanner clear = new Scanner(System.in);
@@ -87,5 +129,20 @@ public class StudListRunner{
         System.out.println();
         int input = takeCommand.nextInt();
         return input;
+    }
+    
+    public static int countDigits(int input) {
+        int number = input;
+        int count = 0;
+        while(number > 0){
+            number = number / 10;
+            count += 1;
+        }
+        
+        return count;
+    }
+    
+    public static void invalid() {
+        System.out.println("Sorry, that was an invalid input. Please try again.");
     }
 }

@@ -17,7 +17,7 @@ public class StudList{
         studList.add(s);
     }
     
-    public boolean deleteStudent(String last){
+    public boolean deleteStudentFromList(String last){
         boolean deleted = false;
         for(int i = 0; i < studList.size(); i++) {
             if(studList.get(i).getLastName().equals(last)) {
@@ -28,17 +28,27 @@ public class StudList{
         return deleted;
     }
     
-    public boolean editStudentList(int number, String name, double gpa) {
+    public boolean editStudentList(int number, String last, String name, double gpa) {
         boolean edited = false;
         for(int i = 0; i < studList.size(); i++) {
-            if(studList.get(i).getStuNumber() == number) {
-                Student student = new Student();
-                student.setFirstName(name);
-                student.setMiddleName(name);
-                student.setLastName(name);
-                student.setGPA(gpa);
-                studList.set(i, student);
-                edited = true;
+            if(number != 0) {
+                if(studList.get(i).getStuNumber() == number) {
+                    Student student = new Student();
+                    parseUserInput(student, name);
+                    student.setStuNumber(number);
+                    student.setGPA(gpa);
+                    studList.set(i, student);
+                    edited = true;
+                }
+            } else {
+                if(studList.get(i).getLastName() == last) {
+                    Student student = new Student();
+                    parseUserInput(student, name);
+                    student.setStuNumber(studList.get(i).getStuNumber());
+                    student.setGPA(gpa);
+                    studList.set(i, student);
+                    edited = true;
+                }
             }
         }
         return edited;
@@ -65,18 +75,14 @@ public class StudList{
              s.setFirstName(name.substring(comma + 2, name.indexOf(" ", comma + 2)));
              s.setMiddleName(name.substring(name.indexOf(" ", comma + 2) + 1));
              s.setLastName(name.substring(0, comma));
-        } else if(comma == -1 && (findSpace(name) == 2 || findSpace(name) == 1)) {
+        } else if(comma == -1 && (findSpace(name) == 2)) {
             s.setFirstName(name.substring(0, space));
             s.setMiddleName(name.substring(space + 1, name.indexOf(" ", space + 1)));
             s.setLastName(name.substring(name.indexOf(" ", space + 1) + 1));
-        } else if(comma == -1 && findSpace(name) == 1) {
+        } else if(comma == -1) {
             s.setFirstName(name.substring(0, space));
-            s.setMiddleName(null);
-            s.setLastName(name.substring(name.indexOf(" ", space + 1) + 1));
-        } else {
-            s.setFirstName(null);
-            s.setMiddleName(null);
-            s.setLastName(null);
+            s.setMiddleName("");
+            s.setLastName(name.substring(name.indexOf(" ") + 1));
         }
     }
     
