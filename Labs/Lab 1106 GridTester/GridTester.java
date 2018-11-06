@@ -17,29 +17,29 @@ public class GridTester {
     }
     
     public static void loadArray(int[][] grid) {
-        for(int r = 0; r < grid.length; r++){
+        for(int r = 0; r < grid.length; r++){ // runs through array
             for(int c = 0; c < grid[r].length; c++) {
-                grid[r][c] = (int)(Math.random() * 100 + 1);
+                grid[r][c] = (int)(Math.random() * 100 + 1); // sets element to a random int
             }
         }
     }
     
     public static int sumAll(int[][] grid) {
-        int sum = 0;
-        for(int r = 0; r < grid.length; r++){
+        int sum = 0; // sum of the elements in the array
+        for(int r = 0; r < grid.length; r++){ // runs through array
             for(int c = 0; c < grid[r].length; c++) {
-                sum = sum + grid[r][c];
+                sum = sum + grid[r][c]; // adds the element to the sum
             }
         }
         return sum;
     }
     
     public static int findGreatest(int[][] grid) {
-        int greatest = grid[0][0];
-        for(int r = 0; r < grid.length; r++){
+        int greatest = grid[0][0]; // greatest element in the array
+        for(int r = 0; r < grid.length; r++){ // runs through array
             for(int c = 0; c < grid[r].length; c++) {
                 if(grid[r][c] > greatest) {
-                    greatest = grid[r][c];
+                    greatest = grid[r][c]; // updates the greatest element if necessary
                 }
             }
         }
@@ -47,15 +47,15 @@ public class GridTester {
     }
     
     public static int numberOfGreatest(int[][] grid) {
-        int greatest = grid[0][0];
-        int number = 0;
-        for(int r = 0; r < grid.length; r++){
+        int greatest = grid[0][0]; // greatest element in the array
+        int number = 0; // number of times that element occurs
+        for(int r = 0; r < grid.length; r++){ // runs through array
             for(int c = 0; c < grid[r].length; c++) {
                 if(grid[r][c] > greatest) {
-                    greatest = grid[r][c];
-                    number = 1;
+                    greatest = grid[r][c]; // updates the greatest element if necessary
+                    number = 1; // resets number of occurrences to 1
                 } else if(grid[r][c] == greatest) {
-                    number++;
+                    number++; // adds to the number of occurrences
                 }
             }
         }
@@ -63,12 +63,12 @@ public class GridTester {
     }
     
     public static double findAvg(int[][] grid) {
-        int sum = 0;
-        int elements = 0;
-        for(int r = 0; r < grid.length; r++){
+        int sum = 0; // sum of the elements in the array
+        int elements = 0; // number of elements in the array
+        for(int r = 0; r < grid.length; r++){ // runs through array
             for(int c = 0; c < grid[r].length; c++) {
-                sum = sum + grid[r][c];
-                elements++;
+                sum = sum + grid[r][c]; // adds the element to the sum
+                elements++; // changes the number of elements by 1
             }
         }
         return (double)sum/(double)elements;
