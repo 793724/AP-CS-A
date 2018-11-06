@@ -68,6 +68,21 @@ public class StudList{
         }
     }
     
+    public Student printStudent(int number, String last, String name, double gpa) {
+        for(int i = 0; i < studList.size(); i++) {
+            if(number != 0) {
+                if(studList.get(i).getStuNumber() == number) {
+                    return studList.get(i);
+                }
+            } else {
+                if(studList.get(i).getLastName() == last) {
+                    return studList.get(i);
+                }
+            }
+        }
+        return null;
+    }
+    
     public void parseUserInput(Student s, String name) {
         int comma = name.indexOf(",");
         int space = name.indexOf(" ");

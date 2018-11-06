@@ -4,6 +4,7 @@ import java.util.Scanner;
  *
  * @author (Emma Chiu)
  * @version (1025)
+ * ADD COMMENTS!
  */
 
 public class StudListRunner{
@@ -100,7 +101,28 @@ public class StudListRunner{
                 studList.printStudentList();
                 System.out.println();
             } else if (command == 6) {
-                System.out.println("Sorry, this command has not yet been implemented.");
+                Scanner command6 = new Scanner(System.in);
+                System.out.println("Would you like to search for your student:");
+                System.out.println("  - by student number (press 1), or");
+                System.out.println("  - by last name (press 2)?");
+                int choice = command6.nextInt();
+                if (choice == 1) {
+                    Scanner command61 = new Scanner(System.in);
+                    System.out.print("Enter your student's student number: ");
+                    int number = command61.nextInt();
+                    if(countDigits(number) == 6) {
+                        // call printStudent
+                    } else {
+                        invalid();
+                    }
+                } else if (choice == 2) {
+                    Scanner command62 = new Scanner(System.in);
+                    System.out.print("Enter your student's last name: ");
+                    String last = command62.nextLine();
+                    // call printStudent
+                } else {
+                    invalid();
+                }
                 System.out.println();
             } else {
                 invalid();
@@ -138,7 +160,6 @@ public class StudListRunner{
             number = number / 10;
             count += 1;
         }
-        
         return count;
     }
     
