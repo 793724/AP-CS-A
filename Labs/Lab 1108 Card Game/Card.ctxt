@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Card
+comment0.text=\r\n\ Lab\ 1108\ Card\ Game\r\n\r\n\ @\ Emma\ Chiu\r\n\ @\ 1108\r\n
+comment1.params=r\ s
+comment1.target=Card(int,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getSuit()
+comment3.params=
+comment3.target=int\ getRank()
+numComments=4
