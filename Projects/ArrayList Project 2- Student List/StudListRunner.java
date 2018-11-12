@@ -4,7 +4,6 @@ import java.util.Scanner;
  *
  * @author (Emma Chiu)
  * @version (1025)
- * ADD COMMENTS!
  */
 
 public class StudListRunner{
@@ -111,7 +110,12 @@ public class StudListRunner{
                     System.out.print("Enter your student's student number: ");
                     int number = command61.nextInt();
                     if(countDigits(number) == 6) {
-                        // call printStudent
+                        Student printed = studList.printStudent(number, "");
+                        if(printed != null) {
+                            System.out.println("Your student is as follows. Name: " + printed.getStudentName() + ", Student Number: " + printed.getStuNumber() + ", GPA: " + printed.getGPA());
+                        } else {
+                            System.out.println("Sorry, this student was not in the list.");
+                        }
                     } else {
                         invalid();
                     }
@@ -119,7 +123,12 @@ public class StudListRunner{
                     Scanner command62 = new Scanner(System.in);
                     System.out.print("Enter your student's last name: ");
                     String last = command62.nextLine();
-                    // call printStudent
+                    Student printed = studList.printStudent(0, last);
+                    if(printed != null) {
+                        System.out.println("Your student is as follows. Name: " + printed.getStudentName() + ", Student Number: " + printed.getStuNumber() + ", GPA: " + printed.getGPA());
+                    } else {
+                        System.out.println("Sorry, this student was not in the list.");
+                    }
                 } else {
                     invalid();
                 }

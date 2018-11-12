@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.ArrayList;
 /**
  * Test Two Review
  *
@@ -12,27 +13,15 @@ public class MagPie {
     }
     
     public static String transformIHaveA(String statement) {
-        // Remove the final period, if there is one
 	statement = statement.toLowerCase().trim();
-	String lastChar = statement.substring(statement.length() - 1);
-	if (lastChar.equals(".")) {
-	    statement = statement.substring(0, statement.length() - 1);
-	}
-
 	int psn = statement.indexOf("i have a");
-	String randomStatement = getRandomResponse();
+	Random r = new Random();
+	ArrayList<String> randomResponses = new ArrayList<String>();
+	randomResponses.add("How long have you had a ");
+        randomResponses.add("What color is your ");
+        randomResponses.add("When did you get your ");
+        randomResponses.add("Why do you have a ");
+	String randomStatement = randomResponses.get(r.nextInt(randomResponses.size()));
         return randomStatement + statement.substring(psn + 9) + "?";
     }
-    
-    public static String getRandomResponse() {
-	Random r = new Random();
-	return randomResponses[r.nextInt(randomResponses.length)];
-    }
-	
-    public static String [] randomResponses = {
-        "How long have you had a ",
-        "What color is your ",
-        "When did you get your ",
-        "Why do you have a "
-    };
 }

@@ -5,6 +5,4 @@ comment1.params=
 comment1.target=void\ main()
 comment2.params=statement
 comment2.target=java.lang.String\ transformIHaveA(java.lang.String)
-comment3.params=
-comment3.target=java.lang.String\ getRandomResponse()
-numComments=4
+numComments=3
