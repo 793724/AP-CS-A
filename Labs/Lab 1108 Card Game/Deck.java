@@ -27,7 +27,7 @@ public class Deck {
     }
     
     public Card getCard() {
-        int spot = (int)(Math.random()*52)+1; // random index of the deck
+        int spot = (int)(Math.random()*51)+1; // random index of the deck
         return deck.get(spot); // returns the card at that index
     }
 }

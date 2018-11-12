@@ -26,7 +26,7 @@ public class Hand {
     }
     
     public int onePair() {
-        int pairCount = -1; // number of pairs; -1 because it will count one by counting the same card twice
+        int pairCount = -5; // number of pairs; -5 because it will count each card with itself once
         int value = 0;
         for(int i = 0; i < 5; i++) {
             if(hand.get(i).getRank() == hand.get(0).getRank()
