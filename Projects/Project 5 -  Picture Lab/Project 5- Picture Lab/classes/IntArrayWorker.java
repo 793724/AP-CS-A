@@ -98,5 +98,42 @@ public class IntArrayWorker
       }
     }
   }
- 
+  
+  /**
+   * Method to return the number of times a certain value is found 
+   * @return the times that the value occurs
+   */
+  public int getCount(int i)
+  {
+    int count = 0;
+    for (int row = 0; row < matrix.length; row++)
+    {
+      for (int col = 0; col < matrix[0].length; col++)
+      {
+        if(i == matrix[row][col]) {
+            count++;
+        }
+      }
+    }
+    return count;
+   }
+   
+   /**
+   * Method to return the largest number in the matrix 
+   * @return the largest value
+   */
+  public int getLargest()
+  {
+    int largest = 0;
+    for (int row = 0; row < matrix.length; row++)
+    {
+      for (int col = 0; col < matrix[0].length; col++)
+      {
+        if(largest <= matrix[row][col]) {
+            largest = matrix[row][col];
+        }
+      }
+    }
+    return largest;
+   }
 }
