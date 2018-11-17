@@ -136,4 +136,18 @@ public class IntArrayWorker
     }
     return largest;
    }
+   
+   /**
+   * Method to return a column total
+   * @return the total of the values in a specified column
+   */
+  public int getColTotal(int c)
+  {
+    int colTotal = 0;
+    for (int row = 0; row < matrix.length; row++)
+    {
+        colTotal = colTotal + matrix[row][c];
+    }
+    return colTotal;
+  }
 }
