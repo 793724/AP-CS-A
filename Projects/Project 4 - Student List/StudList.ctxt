@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StudList
-comment0.text=\r\n\ ArrayList\ Project\ 2-\ Student\ List\r\n\r\n\ @author\ (Emma\ Chiu)\r\n\ @version\ (1025)\r\n
+comment0.text=\n\ ArrayList\ Project\ 2-\ Student\ List\n\n\ @author\ (Emma\ Chiu)\n\ @version\ (1025)\n
 comment1.params=name\ number\ gpa
 comment1.target=void\ addStudentToList(java.lang.String,\ int,\ double)
 comment2.params=last
@@ -17,4 +17,6 @@ comment7.params=s\ name
 comment7.target=void\ parseUserInput(Student,\ java.lang.String)
 comment8.params=name
 comment8.target=int\ findSpace(java.lang.String)
-numComments=9
+comment9.params=minGPA\ minStuNum
+comment9.target=void\ filterSearchStudentList(double,\ int)
+numComments=10

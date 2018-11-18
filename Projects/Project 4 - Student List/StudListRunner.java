@@ -15,7 +15,7 @@ public class StudListRunner{
         while(end == false) {
             // takes in the user's command
             int command = menuNumber();
-            if(command == 7) {
+            if(command == 8) {
                 // ends the program
                 end = true;
             } else if (command == 1) {
@@ -167,10 +167,38 @@ public class StudListRunner{
                     invalid();
                 }
                 System.out.println();
+            } else if (command == 7) {
+                // searches for a student given criteria
+                Scanner command7 = new Scanner(System.in);
+                // options
+                System.out.println("Would you like to filter:");
+                System.out.println("  - by student number (press 1), or");
+                System.out.println("  - by GPA (press 2)?");
+                int choice = command7.nextInt();
+                if (choice == 1) {
+                    // by student number
+                    Scanner command71 = new Scanner(System.in);
+                    System.out.print("Enter the benchmark student number: ");
+                    int number = command71.nextInt();
+                    if(countDigits(number) == 6) {
+                        studList.filterSearchStudentList(0, number);
+                    } else {
+                        invalid();
+                    }
+                } else if (choice == 2) {
+                    // by GPA
+                    Scanner command72 = new Scanner(System.in);
+                    System.out.print("Enter the benchmark GPA: ");
+                    double number = command72.nextDouble();
+                    studList.filterSearchStudentList(number, 0);
+                } else {
+                    invalid();
+                }
+                System.out.println();
             } else {
                 invalid();
             }
-            if(command != 7) {
+            if(command != 8) {
                 // clears the screen after each command
                 Scanner clear = new Scanner(System.in);
                 System.out.println("Press any key to clear the screen and continue!");
@@ -194,7 +222,8 @@ public class StudListRunner{
         System.out.println("  - Clear the list of students (4)");
         System.out.println("  - Print the list of students (5)");
         System.out.println("  - Print a student's information (6)");
-        System.out.println("  - End the program (7)");
+        System.out.println("  - Do a filtered student search (7)");
+        System.out.println("  - End the program (8)");
         System.out.println();
         // takes user's command
         int input = takeCommand.nextInt();

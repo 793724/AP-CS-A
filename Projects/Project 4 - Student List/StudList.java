@@ -65,7 +65,7 @@ public class StudList{
     
     public void printStudentList() {
         if(studList.size() > 0) {
-            for(int i = 0; i < studList.size(); i++) { // runs through the list
+           for(int i = 0; i < studList.size(); i++) { // runs through the list
                // prints the info of each student
                System.out.println(i+1 + ". Name: " + studList.get(i).getStudentName() + ", Student Number: " + studList.get(i).getStuNumber() + ", GPA: " + studList.get(i).getGPA());
            }
@@ -125,5 +125,36 @@ public class StudList{
             count++; // final index
         }
         return count;
+    }
+    
+    public void filterSearchStudentList(double minGPA, int minStuNum) {
+        ArrayList<Student> filteredList = new ArrayList<Student>(); // creates new student array list
+        for(int i = 0; i < studList.size(); i++) { // runs through the list
+            if(minGPA != 0) {
+                if(studList.get(i).getGPA() <= minGPA) { // sees if the element's GPA is less than or equal to the specified number
+                    // if so, add that student to the list
+                    filteredList.add(studList.get(i));
+                }
+            } else {
+                if(studList.get(i).getStuNumber() <= minStuNum) { // sees if the element's student number is less than or equal to the specified number
+                    // if so, add that student to the list
+                    filteredList.add(studList.get(i));
+                }
+            }
+        }
+        if(filteredList.size() > 0) {
+            // prints the info of each student
+            if(minGPA!= 0) {
+                System.out.println("Your list of students with a GPA less than or equal to " + minGPA + " are:");
+            } else {
+                System.out.println("Your list of students with a student number less than or equal to " + minStuNum + " are:");
+            }
+            for(int i = 0; i < filteredList.size(); i++) { // runs through the list
+               System.out.println(i+1 + ". Name: " + filteredList.get(i).getStudentName() + ", Student Number: " + filteredList.get(i).getStuNumber() + ", GPA: " + filteredList.get(i).getGPA());
+            }
+        } else {
+            // if no students fit the criteria
+            System.out.println("Sorry, no such student exists.");
+        }
     }
 }
