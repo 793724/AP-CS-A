@@ -106,11 +106,11 @@ public class IntArrayWorker
   public int getCount(int i)
   {
     int count = 0;
-    for (int row = 0; row < matrix.length; row++)
+    for (int[] rowArray : matrix)
     {
-      for (int col = 0; col < matrix[0].length; col++)
+      for (int item : rowArray)
       {
-        if(i == matrix[row][col]) {
+        if(i == item) {
             count++;
         }
       }
@@ -125,12 +125,12 @@ public class IntArrayWorker
   public int getLargest()
   {
     int largest = 0;
-    for (int row = 0; row < matrix.length; row++)
+    for (int[] rowArray : matrix)
     {
-      for (int col = 0; col < matrix[0].length; col++)
+      for (int item : rowArray)
       {
-        if(largest <= matrix[row][col]) {
-            largest = matrix[row][col];
+        if(largest <= item) {
+            largest = item;
         }
       }
     }
