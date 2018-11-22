@@ -125,6 +125,15 @@ public class PictureTester
     snowman.explore();
   }
   
+  /** Method to test mirrorGull */
+  public static void testMirrorGull()
+  {
+    Picture seagull = new Picture("seagull.jpg");
+    seagull.explore();
+    seagull.mirrorGull();
+    seagull.explore();
+  }
+  
   /** Method to test mirrorDiagonal */
   public static void testMirrorDiagonal()
   {
@@ -169,7 +178,7 @@ public class PictureTester
     //testMirrorHorizontal();
     //testMirrorHorizontalBotToTop();
     //testMirrorTemple();
-    testMirrorArms();
+    //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();

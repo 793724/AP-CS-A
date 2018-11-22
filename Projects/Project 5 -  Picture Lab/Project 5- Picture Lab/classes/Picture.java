@@ -289,19 +289,56 @@ public class Picture extends SimplePicture
     System.out.println("count = " + count);
   }
   
-  /** Mirror the arms on a snowman */
+  /** Make a snowman with four arms */
   public void mirrorArms()
   {
-    int mirrorPoint = 276;
+    int mirrorPoint = 195;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // split into left arm and right arm to avoid mirroring body
+    
+    // left arm: loop through the rows
+    for (int col = 102; col < 170; col++)
+    {
+      // loop from 155 to just before the mirror point
+      for (int row = 155; row < mirrorPoint; row++)
+      {
+        
+        topPixel = pixels[row][col];      
+        bottomPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+     
+    // right arm: loop through the rows
+    for (int col = 238; col < 293; col++)
+    {
+       // loop from 170 to just before the mirror point
+      for (int row = 170; row < mirrorPoint; row++)
+      {
+        
+        topPixel = pixels[row][col];      
+        bottomPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+  
+  /** Mirror a seagull */
+  public void mirrorGull()
+  {
+    int mirrorPoint = 344;
     Pixel leftPixel = null;
     Pixel rightPixel = null;
     Pixel[][] pixels = this.getPixels2D();
     
     // loop through the rows
-    for (int row = 27; row < 97; row++)
+    for (int row = 235; row < 330; row++)
     {
-      // loop from 13 to just before the mirror point
-      for (int col = 13; col < mirrorPoint; col++)
+      // loop from 235 to just before the mirror point
+      for (int col = 235; col < mirrorPoint; col++)
       {
         
         leftPixel = pixels[row][col];      
