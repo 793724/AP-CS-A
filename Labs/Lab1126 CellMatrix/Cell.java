@@ -31,4 +31,14 @@ public class Cell
     public Cell[] getNeighbors() { // getter for neighbors
         return neighbors;
     }
+    
+    public int getNeighborSum(Cell c) {
+        int sum = 0;
+        Cell[] current = c.getNeighbors();
+        for (int i = 0; i < current.length; i++) {
+            // finds the sum of the neighbors
+            sum = sum + current[i].getInt();
+        }
+        return sum;
+    }
 }

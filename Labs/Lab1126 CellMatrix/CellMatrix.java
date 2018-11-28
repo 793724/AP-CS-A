@@ -28,7 +28,7 @@ public class CellMatrix{
         for (int row = 0; row < cells.length; row++) {
             for (int col = 0; col < cells[0].length; col++) {
                 // prints values at each of the indices
-                System.out.print(cells[row][col].getInt() + " " );
+                System.out.print(cells[row][col].getInt() + "  ");
             }
             System.out.println();
         }
@@ -51,31 +51,26 @@ public class CellMatrix{
     public int getGreatestNeighbors(){
         // instance variables
         int greatest = 0;
-        int neighborSum;
+        int sum;
         
         // runs through matrix
         for (int row = 0; row < cells.length; row++) {
             for (int col = 0; col < cells[0].length; col++) {
                 // loads the neighbors array
-                loadNeighbors(cells[row][col], row, col);
-                neighborSum = 0;
-                Cell[] current = cells[row][col].getNeighbors();
-                // runs through the neighbors array
-                for (int i = 0; i < current.length; i++) {
-                    // finds the sum of the neighbors
-                    neighborSum = neighborSum + current[i].getInt();
-                }
-                if(neighborSum >= greatest) {
+                loadNeighbors(row, col);
+                sum = cells[row][col].getNeighborSum(cells[row][col]);
+                if(sum >= greatest) {
                     // updates greatest value if applicable
-                    greatest = neighborSum;
+                    greatest = sum;
                 }
+                sum = 0; // resets sum
             }
         }
         return greatest;
     }
 
     //  Load neighbor cells into the neighbors array
-    public void loadNeighbors(Cell c, int row, int col){
+    public void loadNeighbors(int row, int col){
         // instance variables
         int north;
         int east;
@@ -103,9 +98,9 @@ public class CellMatrix{
         }
         
         // adds neighbors to matrix
-        c.setNeighbors(0, north);
-        c.setNeighbors(1, east);
-        c.setNeighbors(2, south);
-        c.setNeighbors(3, west);
+        cells[row][col].setNeighbors(0, north);
+        cells[row][col].setNeighbors(1, east);
+        cells[row][col].setNeighbors(2, south);
+        cells[row][col].setNeighbors(3, west);
     }
 }

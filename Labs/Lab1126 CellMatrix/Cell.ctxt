@@ -11,4 +11,6 @@ comment3.params=index\ num
 comment3.target=void\ setNeighbors(int,\ int)
 comment4.params=
 comment4.target=Cell[]\ getNeighbors()
-numComments=5
+comment5.params=c
+comment5.target=int\ getNeighborSum(Cell)
+numComments=6
