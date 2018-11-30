@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=PrimeNumber
+comment0.text=\r\n\ Lab\ 1130\ Prime\ Numbers\r\n\r\n\ @\ Emma\ Chiu\r\n\ @\ 1130\r\n
+comment1.params=
+comment1.target=PrimeNumber()
+comment2.params=n
+comment2.target=void\ setListToNumber(int)
+comment3.params=n
+comment3.target=void\ addNumberToList(int)
+comment4.params=n1\ n2
+comment4.target=void\ addNumbers(java.util.ArrayList,\ java.util.ArrayList)
+comment5.params=
+comment5.target=void\ printList()
+numComments=6
