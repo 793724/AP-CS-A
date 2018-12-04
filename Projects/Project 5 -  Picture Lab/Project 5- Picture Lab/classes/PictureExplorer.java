@@ -799,7 +799,8 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
    * Test Main.  It will explore the beach (1).
    * CHANGED in activity 3: it will now explore some flowers (2).
    * CHANGED again in activity 3: it will now explore an added photo of a voting desk (3).
-   */
+   * CHANGED again in activity 8: added a few other pictures to the folder
+     */
   public static void main( String args[])
   {
     // Picture pix = new Picture("beach.jpg"); // 1
@@ -808,6 +809,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     Picture smallP = p.scale(0.1,0.1); // needed to scale the picture
     smallP.write("smallStickers.jpg");
     smallP.explore();
+    
+    Picture zinnia = new Picture("zinnia.jpg");
+    Picture smallZinnia = zinnia.scale(0.05, 0.05);
+    smallZinnia.write("smallZinnia.jpg");
   }
   
 }
