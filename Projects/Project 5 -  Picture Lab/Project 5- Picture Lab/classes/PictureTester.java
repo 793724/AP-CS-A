@@ -17,6 +17,24 @@ public class PictureTester
     beach.explore();
   }
   
+  // Method to test zeroGreen
+  public static void testZeroGreen()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.zeroGreen();
+    beach.explore();
+  }
+  
+  // Method to test zeroRed
+  public static void testZeroRed()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.zeroRed();
+    beach.explore();
+  }
+  
   /** Method to test keepOnlyBlue */
   public static void testKeepOnlyBlue()
   {
@@ -175,6 +193,30 @@ public class PictureTester
     swan.explore();
   }
   
+  /** Method to test edgeDetection2 */
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("swan.jpg");
+    swan.edgeDetection2();
+    swan.explore();
+  }
+  
+  /** Method to test edgeDetectionColor */
+  public static void testEdgeDetectionColor()
+  {
+    Picture swan = new Picture("swan.jpg");
+    swan.edgeDetectionColor(10);
+    swan.explore();
+  }
+  
+  /** Method to test edgeDetectionColor using my picture */
+  public static void testEdgeDetectionColorMyPic()
+  {
+    Picture me = new Picture("EmmaPic.jpg");
+    me.edgeDetectionColor(15);
+    me.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -183,6 +225,8 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
+    //testZeroGreen();
+    //testZeroRed();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -201,8 +245,10 @@ public class PictureTester
     //testCopy();
     //testCollageTwo();
     //testMyCollage();
-    testEdgeDetection();
+    //testEdgeDetection();
     //testEdgeDetection2();
+    //testEdgeDetectionColor();
+    testEdgeDetectionColorMyPic();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
