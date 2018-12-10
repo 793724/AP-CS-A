@@ -11,73 +11,73 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+    Picture stickers = new Picture("smallStickers.jpg");
+    stickers.explore();
+    stickers.zeroBlue();
+    stickers.explore();
   }
   
   // Method to test zeroGreen
   public static void testZeroGreen()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroGreen();
-    beach.explore();
+    Picture stickers = new Picture("smallStickers.jpg");
+    stickers.explore();
+    stickers.zeroGreen();
+    stickers.explore();
   }
   
   // Method to test zeroRed
   public static void testZeroRed()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroRed();
-    beach.explore();
+    Picture stickers = new Picture("smallStickers.jpg");
+    stickers.explore();
+    stickers.zeroRed();
+    stickers.explore();
   }
   
   /** Method to test keepOnlyBlue */
   public static void testKeepOnlyBlue()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.keepOnlyBlue();
-    beach.explore();
+    Picture stickers = new Picture("smallStickers.jpg");
+    stickers.explore();
+    stickers.keepOnlyBlue();
+    stickers.explore();
   }
   
   /** Method to test keepOnlyRed */
   public static void testKeepOnlyRed()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.keepOnlyRed();
-    beach.explore();
+    Picture stickers = new Picture("smallStickers.jpg");
+    stickers.explore();
+    stickers.keepOnlyRed();
+    stickers.explore();
   }
   
   /** Method to test keepOnlyGreen */
   public static void testKeepOnlyGreen()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.keepOnlyGreen();
-    beach.explore();
+    Picture stickers = new Picture("smallStickers.jpg");
+    stickers.explore();
+    stickers.keepOnlyGreen();
+    stickers.explore();
   }
   
   /** Method to test negate */
   public static void testNegate()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.negate();
-    beach.explore();
+    Picture belvedere = new Picture("smallBelvedere.jpg");
+    belvedere.explore();
+    belvedere.negate();
+    belvedere.explore();
   }
   
   /** Method to test grayscale */
   public static void testGrayscale()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.grayscale();
-    beach.explore();
+    Picture belvedere = new Picture("smallBelvedere.jpg");
+    belvedere.explore();
+    belvedere.grayscale();
+    belvedere.explore();
   }
   
   /** Method to test fixUnderwater */
@@ -89,40 +89,60 @@ public class PictureTester
     water.explore();
   }
   
-  /** Method to test mirrorVertical */
+  /** Method to test mirrorVertical (added own picture) */
   public static void testMirrorVertical()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+    
+    Picture belvedere = new Picture("smallBelvedere.jpg");
+    belvedere.explore();
+    belvedere.mirrorVertical();
+    belvedere.explore();
   }
   
-  /** Method to test mirrorVerticalRightToLeft */
+  /** Method to test mirrorVerticalRightToLeft (added own picture) */
   public static void testMirrorVerticalRightToLeft()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVerticalRightToLeft();
     caterpillar.explore();
+    
+    Picture belvedere = new Picture("smallBelvedere.jpg");
+    belvedere.explore();
+    belvedere.mirrorVerticalRightToLeft();
+    belvedere.explore();
   }
   
-  /** Method to test mirrorHorizontal */
+  /** Method to test mirrorHorizontal (added own picture) */
   public static void testMirrorHorizontal()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorHorizontal();
     caterpillar.explore();
+    
+    Picture belvedere = new Picture("smallBelvedere.jpg");
+    belvedere.explore();
+    belvedere.mirrorHorizontal();
+    belvedere.explore();
   }
   
-  /** Method to test mirrorHorizontalBotToTop */
+  /** Method to test mirrorHorizontalBotToTop (added own picture) */
   public static void testMirrorHorizontalBotToTop()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorHorizontalBotToTop();
     caterpillar.explore();
+    
+    Picture belvedere = new Picture("smallBelvedere.jpg");
+    belvedere.explore();
+    belvedere.mirrorHorizontalBotToTop();
+    belvedere.explore();
   }
   
   /** Method to test mirrorTemple */
@@ -152,13 +172,18 @@ public class PictureTester
     seagull.explore();
   }
   
-  /** Method to test mirrorDiagonal */
+  /** Method to test mirrorDiagonal (added own picture) */
   public static void testMirrorDiagonal()
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.mirrorDiagonal();
     beach.explore();
+    
+    Picture belvedere = new Picture("smallBelvedere.jpg");
+    belvedere.explore();
+    belvedere.mirrorDiagonal();
+    belvedere.explore();
   }
   
   /** Method to test the collage method */
@@ -213,7 +238,8 @@ public class PictureTester
   public static void testEdgeDetectionColorMyPic()
   {
     Picture me = new Picture("EmmaPic.jpg");
-    me.edgeDetectionColor(15);
+    me.explore();
+    me.edgeDetectionColor(20);
     me.explore();
   }
   

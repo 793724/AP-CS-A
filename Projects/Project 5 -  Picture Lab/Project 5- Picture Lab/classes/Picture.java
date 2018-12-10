@@ -201,12 +201,23 @@ public class Picture extends SimplePicture
     /** Method to make the picture's fish easier to see */
     public void fixUnderwater()
     {
+        // instance variables
+        Pixel currentPixel = null;
         Pixel[][] pixels = this.getPixels2D();
-        for (Pixel[] rowArray : pixels)
-        {
-            for (Pixel pixelObj : rowArray)
+        int currentRed = 0;
+        int currentGreen = 0;
+        int currentBlue = 0;
+        for (int row = 0; row < pixels.length - 1; row++) {
+            for (int col = 0; col < pixels[0].length - 1; col++)
             {
-                pixelObj.setRed(pixelObj.getRed() + 100);
+                currentPixel = pixels[row][col];
+                currentRed = currentPixel.getRed();
+                currentGreen = currentPixel.getGreen();
+                currentBlue = currentPixel.getBlue();
+                // making colors stand out more
+                currentPixel.setRed(currentRed+50);
+                currentPixel.setBlue(currentBlue/2+50);
+                currentPixel.setGreen(currentGreen-85);
             }
         }
     }
@@ -528,23 +539,29 @@ public class Picture extends SimplePicture
      * Added loop to account for top and bottom
      */
     public void edgeDetection(int edgeDist) {
+        // instance variables
         Pixel currentPixel = null;
         Pixel rightPixel = null;
         Pixel bottomPixel = null;
+        Pixel diagPixel = null;
         Pixel[][] pixels = this.getPixels2D();
         Color rightColor = null;
         Color bottomColor = null;
+        Color diagColor = null;
         for (int row = 0; row < pixels.length - 1; row++) {
             for (int col = 0; col < pixels[0].length - 1; col++)
             {
                 currentPixel = pixels[row][col];
                 rightPixel = pixels[row][col+1];
+                diagPixel = pixels[row+1][col+1];
                 rightColor = rightPixel.getColor();
                 bottomPixel = pixels[row+1][col];
                 bottomColor = bottomPixel.getColor();
-                // compares current pixel to the one to the right of it and the one beneath it
-                if (currentPixel.colorDistance(rightColor) > 
-                edgeDist || currentPixel.colorDistance(bottomColor) > edgeDist) {
+                diagColor = diagPixel.getColor();
+                // compares current pixel to the one to the right of it, the one beneath it, and the one diagonal from it
+                if (currentPixel.colorDistance(rightColor) > edgeDist
+                || currentPixel.colorDistance(bottomColor) > edgeDist
+                || currentPixel.colorDistance(diagColor) > edgeDist) {
                     // if there's an edge
                     currentPixel.setColor(Color.BLACK);
                 }
@@ -560,15 +577,19 @@ public class Picture extends SimplePicture
      * A second method for edge detection (self-created)
      */
     public void edgeDetection2() {
+        // instance variables
         Pixel currentPixel = null;
         Pixel rightPixel = null;
         Pixel bottomPixel = null;
+        Pixel diagPixel = null;
         Pixel[][] pixels = this.getPixels2D();
         Color rightColor = null;
         Color bottomColor = null;
+        Color diagColor = null;
         int currentAverage = 0;
         int rightAverage = 0;
         int bottomAverage = 0;
+        int diagAverage = 0;
         for (int row = 0; row < pixels.length - 1; row++) {
             for (int col = 0; col < pixels[0].length - 1; col++)
             {
@@ -578,8 +599,12 @@ public class Picture extends SimplePicture
                 rightAverage = (rightPixel.getRed() + rightPixel.getGreen() + rightPixel.getBlue())/3;
                 bottomPixel = pixels[row+1][col];
                 bottomAverage = (bottomPixel.getRed() + bottomPixel.getGreen() + bottomPixel.getBlue())/3;
+                diagPixel = pixels[row+1][col+1];
+                diagAverage = (diagPixel.getRed() + diagPixel.getGreen() + diagPixel.getBlue())/3;
                 // compares current pixel to the one to the right of it and the one beneath it
-                if (currentAverage > rightAverage + 3 || currentAverage > bottomAverage + 3) {
+                if (currentAverage > rightAverage + 4
+                || currentAverage > bottomAverage + 4
+                || currentAverage > diagAverage + 4) {
                     // if there's an edge
                     currentPixel.setColor(Color.BLACK);
                 }
@@ -595,23 +620,29 @@ public class Picture extends SimplePicture
      * Edge detection (original method) with added loop and in color
      */
     public void edgeDetectionColor(int edgeDist) {
+        // instance variables
         Pixel currentPixel = null;
         Pixel rightPixel = null;
         Pixel bottomPixel = null;
+        Pixel diagPixel = null;
         Pixel[][] pixels = this.getPixels2D();
         Color rightColor = null;
         Color bottomColor = null;
+        Color diagColor = null;
         for (int row = 0; row < pixels.length - 1; row++) {
             for (int col = 0; col < pixels[0].length - 1; col++)
             {
                 currentPixel = pixels[row][col];
                 rightPixel = pixels[row][col+1];
+                diagPixel = pixels[row+1][col+1];
                 rightColor = rightPixel.getColor();
                 bottomPixel = pixels[row+1][col];
                 bottomColor = bottomPixel.getColor();
-                // compares current pixel to the one to the right of it and the one beneath it
-                if (currentPixel.colorDistance(rightColor) > 
-                edgeDist || currentPixel.colorDistance(bottomColor) > edgeDist) {
+                diagColor = diagPixel.getColor();
+                // compares current pixel to the one to the right of it, the one beneath it, and the one diagonal from it
+                if (currentPixel.colorDistance(rightColor) > edgeDist
+                || currentPixel.colorDistance(bottomColor) > edgeDist
+                || currentPixel.colorDistance(diagColor) > edgeDist) {
                     // if there's an edge
                     int x = (int)(Math.random()*255);
                     int y = (int)(Math.random()*255);

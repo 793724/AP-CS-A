@@ -813,6 +813,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     Picture zinnia = new Picture("zinnia.jpg");
     Picture smallZinnia = zinnia.scale(0.05, 0.05);
     smallZinnia.write("smallZinnia.jpg");
+    
+    Picture belvedere = new Picture("belvedere.jpg");
+    Picture smallBelvedere = belvedere.scale(0.1, 0.1);
+    smallBelvedere.write("smallBelvedere.jpg");
   }
   
 }
