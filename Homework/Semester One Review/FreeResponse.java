@@ -7,7 +7,20 @@ import java.util.ArrayList;
  */
 
 public class FreeResponse {
-    // FR1
+    // Runs methods for FR3 and FR4
+    public static void main() {
+        // FR3
+        String[] randStrings = {"yes", "no", "maybe", "perhaps", "It remains to be seen"};
+        String response = getRandomResponse(randStrings);
+        System.out.println("Free Response #3: " + response);
+        
+        // FR4
+        int[][] nums = new int[10][10];
+        int numEvens = loadNums(nums);
+        System.out.println("Free Response #4: " + numEvens + " even numbers");
+    }
+    
+    // FR1 - getter and setter for gpa
     private double GPA;
     
     public void setGPA(double gpa) {
@@ -18,7 +31,7 @@ public class FreeResponse {
         return GPA;
     }
 
-    // FR2
+    // FR2 - sets all array list values outside of a specified bound to the min or max
     public int adjustMaxMin(ArrayList<Integer> levels, int maxLevel){
         int changedValues = 0;
         for(int i = 0; i < levels.size(); i++) {
@@ -34,17 +47,14 @@ public class FreeResponse {
         return changedValues;
     }
     
-    // FR3
-    public String getRandomResponse(String[] str){
+    // FR3 - returns a random response
+    public static String getRandomResponse(String[] str){
         int num = (int)(Math.random()*(str.length));
         String response = str[num];
         return response;
     }
-
-    String[] randStrings = {"yes", "no", "maybe", "perhaps", "It remains to be seen"};
-    String response = getRandomResponse(randStrings);
     
-    // FR4
+    // FR4 - loads a 2D array with random values and returns the number of even values
     public static int loadNums(int[][] nums) {
         int evens = 0;
         for(int r = 0; r < nums.length; r++){
@@ -56,11 +66,5 @@ public class FreeResponse {
             }
         }
         return evens;
-    }
-    
-    public static void main() {
-        int[][] nums = new int[10][10];
-        int numEvens = loadNums(nums);
-        System.out.println(numEvens);
     }
 }

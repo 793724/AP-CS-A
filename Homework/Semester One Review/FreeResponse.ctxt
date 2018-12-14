@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=FreeResponse
+comment0.text=\n\ Semester\ One\ Review\n\n\ @\ Emma\ Chiu\n\ @\ 12/12/18\n
+comment1.params=
+comment1.target=void\ main()
+comment2.params=gpa
+comment2.target=void\ setGPA(double)
+comment3.params=
+comment3.target=double\ getGPA()
+comment4.params=levels\ maxLevel
+comment4.target=int\ adjustMaxMin(java.util.ArrayList,\ int)
+comment5.params=str
+comment5.target=java.lang.String\ getRandomResponse(java.lang.String[])
+comment6.params=nums
+comment6.target=int\ loadNums(int[][])
+numComments=7
