@@ -26,5 +26,11 @@ public class Numbers {
             j = j / 10;
         }
         System.out.println("Sum of Digits: " + sum);
+        System.out.println();
+        System.out.println();
+        
+        for(int loop = 0; loop < 10; loop++) {
+            System.out.print((int)(Math.random()*10 + 1) + ", ");
+        }
     }
 }
